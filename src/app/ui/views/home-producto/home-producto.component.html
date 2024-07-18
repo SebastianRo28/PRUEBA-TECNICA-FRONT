@@ -1,0 +1,43 @@
+<div class="container" >
+    <h2>Listado de Productos</h2>
+    <button type="button" (click)="router.navigate(['/agregar'])" class="btn btn-secondary">Nuevo Producto</button>
+
+
+    <form class="row" style="margin-top: 2%;margin-bottom: 2%;">
+        <div class="col-auto">
+            <label for="codigo" [(ngModel)]="codigo" class="col-form-label">Código:</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="codigo" placeholder="Código">
+        </div>
+        <div class="col-auto">
+            <label for="nombre" [(ngModel)]="nombre" class="col-form-label">Nombre:</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="loadProducts()">
+                Buscar
+            </button>
+        </div>
+    </form>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Precio Unitario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pr of productos">
+            <td>{{ pr.id }}</td>
+            <td>{{ pr.nombre }}</td>
+            <td>{{ pr.precio }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+  </div>
